@@ -158,6 +158,12 @@ input {
 
   .chatbot-mobile-div {
     width: -webkit-fill-available;
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
   }
 
   .response {
