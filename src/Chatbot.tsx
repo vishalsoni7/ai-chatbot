@@ -52,14 +52,14 @@ const Chatbot: React.FC = () => {
       <div className="response">{chatbotResponse}</div>
       <div className="error-message">{error}</div>
 
-      <div>
+      <div className="chatbot-mobile-div">
         <div className="suggestion">
-          <div>
+          <div className="direct-question-div">
             <p onClick={askDirectQuestion}>who are you </p>
             <p onClick={askDirectQuestion}> who build you </p>
           </div>
 
-          <div>
+          <div className="direct-question-div">
             <p onClick={askDirectQuestion}> what can you do for me </p>
             <p onClick={askDirectQuestion}> how do you work </p>
           </div>
@@ -77,9 +77,7 @@ const Chatbot: React.FC = () => {
             Ask
           </button>
         </div>
-        <span>
-          AI can make mistakes. Consider checking important information.{" "}
-        </span>{" "}
+        <span>AI can make mistakes. </span>{" "}
       </div>
     </div>
   );
