@@ -25,6 +25,12 @@ body {
 .response {
   margin: 0 1rem;
 }
+/* Error message  */
+.error-message {
+  margin: 0 1rem;
+  color: crimson;
+  text-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
+}
 
 /* Styling for the chatbot container */
 .chatbot-container {

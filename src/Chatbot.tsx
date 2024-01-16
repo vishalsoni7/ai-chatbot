@@ -6,6 +6,7 @@ import axios from "axios";
 const Chatbot: React.FC = () => {
   const [userInput, setUserInput] = useState<string>("");
   const [chatbotResponse, setChatbotResponse] = useState<string>("");
+  const [error, setError] = useState<string>("");
 
   const URL: string = "https://nestjs-api-alpha.vercel.app/chatbot";
 
@@ -26,6 +27,13 @@ const Chatbot: React.FC = () => {
       }
     } catch (error) {
       //@ts-ignore
+      const fullErrorResponse = error.message;
+      for (let i = 0; i < fullErrorResponse.length; i++) {
+        setError(fullErrorResponse.substring(0, i + 1));
+        await new Promise((resolve) => setTimeout(resolve, 50));
+      }
+
+      //@ts-ignore
       console.error("Error:", error.message);
     }
   };
@@ -38,6 +46,7 @@ const Chatbot: React.FC = () => {
       </div>
 
       <div className="response">{chatbotResponse}</div>
+      <div className="error-message">{error}</div>
 
       <div>
         <div className="suggestion">
