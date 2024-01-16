@@ -38,6 +38,10 @@ const Chatbot: React.FC = () => {
     }
   };
 
+  const askDirectQuestion = (value: string) => {
+    setUserInput(value);
+  };
+
   return (
     <div className="chatbot-container">
       <div className="logo-img-div">
@@ -51,13 +55,28 @@ const Chatbot: React.FC = () => {
       <div>
         <div className="suggestion">
           <div>
-            <p> who are you </p>
-            <p> who build you </p>
+            <p
+              //@ts-ignore
+              onClick={() => askDirectQuestion("who are you")}
+            >
+              {" "}
+              who are you{" "}
+            </p>
+            <p onClick={() => askDirectQuestion("who build you")}>
+              {" "}
+              who build you{" "}
+            </p>
           </div>
 
           <div>
-            <p> what can you do for me </p>
-            <p> how do you work </p>
+            <p onClick={() => askDirectQuestion("what can you do for me")}>
+              {" "}
+              what can you do for me{" "}
+            </p>
+            <p onClick={() => askDirectQuestion("how do you work")}>
+              {" "}
+              how do you work{" "}
+            </p>
           </div>
         </div>
         <div className="input-btn-div">
