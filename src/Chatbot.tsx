@@ -1,6 +1,9 @@
 // Import necessary dependencies
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+
+// Import CSS for component
+import "./Chat.css";
 
 // Define the component
 const Chatbot: React.FC = () => {
@@ -13,6 +16,11 @@ const Chatbot: React.FC = () => {
   // Function to handle user input and fetch chatbot response
   const handleUserInput = async () => {
     try {
+      if (!userInput.trim()) {
+        alert("Please write a question!");
+        return;
+      }
+
       await new Promise((resolve) => setTimeout(resolve, 300));
 
       const response = await axios.post(URL, {
@@ -56,7 +64,7 @@ const Chatbot: React.FC = () => {
         <div className="suggestion">
           <div className="direct-question-div">
             <p onClick={askDirectQuestion}>who are you </p>
-            <p onClick={askDirectQuestion}> who build you </p>
+            <p onClick={askDirectQuestion}> who built you </p>
           </div>
 
           <div className="direct-question-div">
@@ -77,7 +85,7 @@ const Chatbot: React.FC = () => {
             Ask
           </button>
         </div>
-        <span>AI can make mistakes. </span>{" "}
+        <span>AI can make mistakes! </span>{" "}
       </div>
     </div>
   );
