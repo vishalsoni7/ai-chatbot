@@ -1,3 +1,35 @@
+# AI Chatbot App
+
+## Overview
+
+This project is an AI Chatbot application built using React for the front end, HTML, CSS, JavaScript, and TypeScript. The backend is powered by a Nest.js REST API. The chatbot is designed to respond to predefined questions with corresponding answers, providing users with an interactive and conversational experience.
+
+# Features
+
+- React Frontend: The user interface is developed using React, providing a dynamic and responsive experience for users.
+- HTML, CSS, JavaScript, TypeScript: These technologies are used to enhance the user interface and provide a seamless interaction.
+- Nest.js REST API Backend: The backend is built with Nest.js, a scalable and modular framework for building server-side applications. The REST API handles communication between the frontend and the underlying logic of the chatbot.
+- AI-Powered Chatbot: The chatbot utilizes predefined questions and answers to simulate a natural conversation. The application's intelligence is derived from the backend logic and the predefined dataset.
+
+## Predefined Questions
+
+- hello
+- who are you
+- who build you
+- how are you today
+- what can you do for me
+- where are you located
+- what is the meaning of life
+- how do you work
+- can you tell a joke
+- what's the weather like today
+- how tall are you
+- what is your favorite color
+- can you sing a song
+- do you dream
+- what languages do you speak
+- are you a robot
+    
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
