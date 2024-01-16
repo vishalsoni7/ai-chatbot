@@ -1,5 +1,5 @@
 // Import necessary dependencies
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 // Define the component
@@ -7,21 +7,35 @@ const Chatbot: React.FC = () => {
   const [userInput, setUserInput] = useState<string>("");
   const [chatbotResponse, setChatbotResponse] = useState<string>("");
 
+  const URL: string = "https://nestjs-api-alpha.vercel.app/chatbot";
+
   // Function to handle user input and fetch chatbot response
   const handleUserInput = async () => {
     try {
-      const response = await axios.post(
-        "https://nestjs-api-lvbi.vercel.app/chatbot",
-        {
-          question: userInput,
-        }
-      );
+      const response = await axios.post(URL, {
+        question: userInput,
+      });
       setChatbotResponse(response.data.response);
     } catch (error) {
       //@ts-ignore
       console.error("Error:", error.message);
     }
   };
+
+  const fetchFata = () => {
+    try {
+      const URL = axios.get("https://nestjs-api-alpha.vercel.app");
+
+      //@ts-ignore
+      return URL?.data?.response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchFata();
+  }, []);
 
   return (
     <div className="chatbot-container">
