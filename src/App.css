@@ -13,17 +13,17 @@ body {
 }
 
 .logo-img-div img {
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
 }
 
 .logo-img-div h2 {
   color: white;
 }
 
-/* Define styling for error messages */
-.error-message {
-  color: #ff0000;
+/* Response div */
+.response {
+  margin: 0 1rem;
 }
 
 /* Styling for the chatbot container */

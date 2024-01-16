@@ -12,30 +12,23 @@ const Chatbot: React.FC = () => {
   // Function to handle user input and fetch chatbot response
   const handleUserInput = async () => {
     try {
+      await new Promise((resolve) => setTimeout(resolve, 300));
+
       const response = await axios.post(URL, {
         question: userInput,
       });
-      setChatbotResponse(response.data.response);
+
+      const fullResponse = response.data.response;
+
+      for (let i = 0; i < fullResponse.length; i++) {
+        setChatbotResponse(fullResponse.substring(0, i + 1));
+        await new Promise((resolve) => setTimeout(resolve, 50));
+      }
     } catch (error) {
       //@ts-ignore
       console.error("Error:", error.message);
     }
   };
-
-  const fetchFata = () => {
-    try {
-      const URL = axios.get("https://nestjs-api-alpha.vercel.app");
-
-      //@ts-ignore
-      return URL?.data?.response;
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchFata();
-  }, []);
 
   return (
     <div className="chatbot-container">
@@ -44,18 +37,18 @@ const Chatbot: React.FC = () => {
         <h2> How can I help you today? </h2>
       </div>
 
-      <div>{chatbotResponse}</div>
+      <div className="response">{chatbotResponse}</div>
 
       <div>
         <div className="suggestion">
           <div>
-            <p> who are you? </p>
-            <p> who build you? </p>
+            <p> who are you </p>
+            <p> who build you </p>
           </div>
 
           <div>
-            <p> what can you do for me? </p>
-            <p> how do you work? </p>
+            <p> what can you do for me </p>
+            <p> how do you work </p>
           </div>
         </div>
         <div className="input-btn-div">
