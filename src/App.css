@@ -158,7 +158,6 @@ input {
 
   .chatbot-mobile-div {
     width: -webkit-fill-available;
-
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -172,5 +171,10 @@ input {
 
   .logo-img-div {
     margin-top: 2rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
   }
 }
