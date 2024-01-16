@@ -19,10 +19,10 @@ const Chatbot: React.FC = () => {
         question: userInput,
       });
 
-      const fullResponse = response.data.response;
+      const fullSuccessResponse = response.data.response;
 
-      for (let i = 0; i < fullResponse.length; i++) {
-        setChatbotResponse(fullResponse.substring(0, i + 1));
+      for (let i = 0; i < fullSuccessResponse.length; i++) {
+        setChatbotResponse(fullSuccessResponse.substring(0, i + 1));
         await new Promise((resolve) => setTimeout(resolve, 50));
       }
     } catch (error) {
@@ -32,13 +32,13 @@ const Chatbot: React.FC = () => {
         setError(fullErrorResponse.substring(0, i + 1));
         await new Promise((resolve) => setTimeout(resolve, 50));
       }
-
       //@ts-ignore
       console.error("Error:", error.message);
     }
   };
 
-  const askDirectQuestion = (value: string) => {
+  const askDirectQuestion = (e: React.MouseEvent<HTMLParagraphElement>) => {
+    const value = e.currentTarget.innerText;
     setUserInput(value);
   };
 
@@ -55,28 +55,13 @@ const Chatbot: React.FC = () => {
       <div>
         <div className="suggestion">
           <div>
-            <p
-              //@ts-ignore
-              onClick={() => askDirectQuestion("who are you")}
-            >
-              {" "}
-              who are you{" "}
-            </p>
-            <p onClick={() => askDirectQuestion("who build you")}>
-              {" "}
-              who build you{" "}
-            </p>
+            <p onClick={askDirectQuestion}>who are you </p>
+            <p onClick={askDirectQuestion}> who build you </p>
           </div>
 
           <div>
-            <p onClick={() => askDirectQuestion("what can you do for me")}>
-              {" "}
-              what can you do for me{" "}
-            </p>
-            <p onClick={() => askDirectQuestion("how do you work")}>
-              {" "}
-              how do you work{" "}
-            </p>
+            <p onClick={askDirectQuestion}> what can you do for me </p>
+            <p onClick={askDirectQuestion}> how do you work </p>
           </div>
         </div>
         <div className="input-btn-div">
